@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tech With Yeakub by Yakub Islam — technology tips, YouTube tips, video editing, AI tools, and social media tutorials.">
+<title>Tech With Yeakub | Yakub Islam</title>
+<style>
+:root {
+  --site-primary: #155eef;
+  --site-secondary: #101828;
+  --site-background: #f4f7fb;
+  --site-on-primary: #ffffff;
+  --site-on-secondary: #ffffff;
+  --site-on-background: #172033;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
+.app { min-height: 100vh; background-color: light-dark(var(--site-background), #101828); color: light-dark(var(--site-on-background), #eef2ff); border-radius: 0; overflow: hidden; }
+header { background: var(--site-secondary); color: var(--site-on-secondary); padding: calc(18px * var(--site-spacing-scale)) max(5vw, 22px); display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.brand { font-weight: 850; letter-spacing:-.04em; font-size:1.12rem; }
+.brand span { color:#8bb4ff; }
+nav { display:flex; gap:20px; flex-wrap:wrap; }
+nav a { color:#e5eaff; text-decoration:none; font-size:.9rem; }
+nav a:hover { color:#9fc0ff; }
+.hero { position:relative; padding: clamp(48px, 8vw, 100px) max(5vw, 22px); background:linear-gradient(120deg,#0b1734,#153d7c 62%,#1767a8); color:white; display:grid; grid-template-columns:1.35fr .8fr; gap:36px; align-items:center; }
+.hero:after { content:""; position:absolute; width:330px;height:330px;right:7%;top:4%;border-radius:50%;background:#5e9cff;filter:blur(100px);opacity:calc(.22 * var(--site-decoration-opacity));pointer-events:none; }
+.eyebrow { text-transform:uppercase; letter-spacing:.16em; font-size:.75rem; font-weight:800; color:#b9d4ff; }
+h1,h2,h3 { font-family:var(--site-font-heading); line-height:1.1; letter-spacing:-.04em; }
+h1 { font-size:calc(clamp(2.5rem, 6vw, 5rem) * var(--site-heading-scale)); margin:15px 0; max-width:760px; }
+.hero p { color:#dce8ff; max-width:650px; line-height:1.75; font-size:1.05rem; }
+.actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:26px; }
+.button { display:inline-flex; align-items:center; justify-content:center; padding:13px 18px; border-radius:calc(12px * var(--site-radius-scale)); font-weight:750; text-decoration:none; border:1px solid transparent; }
+.button.primary { background:var(--site-primary); color:white; }
+.button.secondary { color:white; border-color:#8daee8; background:#ffffff12; }
+.profile-card { position:relative; z-index:1; justify-self:center; width:min(100%,300px); aspect-ratio:4/5; border:1px solid #ffffff55; border-radius:calc(26px * var(--site-radius-scale)); background:linear-gradient(145deg,#ffffff22,#ffffff08); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:28px; box-shadow:0 25px 80px #0003; }
+.avatar { width:112px;height:112px;border-radius:50%;background:#d9e7ff;color:#153d7c;display:grid;place-items:center;font-size:2.2rem;font-weight:900;border:4px solid #ffffffaa; }
+.profile-card strong { font-size:1.25rem; margin-top:18px; }
+.profile-card span { color:#dce8ff; margin-top:7px; font-size:.9rem; }
+section { padding:calc(64px * var(--site-spacing-scale)) max(5vw,22px); }
+.section-head { max-width:760px; margin-bottom:28px; }
+h2 { font-size:calc(clamp(1.8rem, 3vw, 2.8rem) * var(--site-heading-scale)); margin:0 0 12px; }
+.section-head p, .about p { line-height:1.75; color:light-dark(#596579,#c6cede); }
+.grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.card { padding:25px; border-radius:calc(18px * var(--site-radius-scale)); border:1px solid light-dark(#e0e7f0,#344054); background:light-dark(#ffffff,#182230); }
+.icon { font-size:1.7rem; }
+.card h3 { font-size:1.18rem; margin:16px 0 9px; letter-spacing:-.02em; }
+.card p { color:light-dark(#596579,#c6cede); line-height:1.65; margin-bottom:0; }
+.about { background:light-dark(#eaf0f9,#141f30); display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center; }
+.about-panel { border-left:4px solid var(--site-primary); padding:8px 0 8px 22px; }
+.socials { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+.socials a { color:light-dark(#1548a0,#b9d4ff); text-decoration:none; border:1px solid light-dark(#c8d7ed,#344d70); padding:11px 14px; border-radius:calc(12px * var(--site-radius-scale)); font-weight:750; }
+footer { background:var(--site-secondary); color:#dce4f2; padding:28px max(5vw,22px); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.9rem; }
+footer p { margin:0; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; } }
+@media (max-width:760px) {
+ header { align-items:flex-start; flex-direction:column; }
+ nav { gap:13px; }
+ .hero { grid-template-columns:1fr; }
+ .profile-card { width:min(100%,260px); aspect-ratio:1/1; }
+ .grid { grid-template-columns:1fr; }
+ .about { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="app" data-sites-preview-theme="custom">
+<header>
+  <div class="brand">Tech With <span>Yeakub</span></div>
+  <nav aria-label="Main navigation">
+    <a href="#about">About</a><a href="#tutorials">Tutorials</a><a href="#social">Social Links</a>
+  </nav>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div>
+      <div class="eyebrow">Technology • Creativity • Learning</div>
+      <h1>Learn tech. Edit better. Create more.</h1>
+      <p>Welcome to <strong>Tech With Yeakub</strong>! I’m Yakub Islam, sharing practical technology tutorials, YouTube tips, video-editing guides, AI tools, and social media tips to help you create better content.</p>
+      <div class="actions">
+        <a class="button primary" href="https://youtube.com/@techwithyeakub" target="_blank" rel="noopener noreferrer">▶ Visit YouTube Channel</a>
+        <a class="button secondary" href="#tutorials">Explore Tutorials ↓</a>
+      </div>
+    </div>
+    <div class="profile-card" aria-label="Profile placeholder">
+      <div class="avatar">YI</div>
+      <strong>Yakub Islam</strong>
+      <span>Creator of Tech With Yeakub</span>
+      <span>Technology &amp; YouTube Tips</span>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--site-primary)">About me</div>
+      <h2>Making technology easier for everyone.</h2>
+      <p>I create easy-to-follow tutorials for creators and learners. From mobile editing tricks to YouTube channel growth tips, the goal is to make useful digital skills easier to understand and use.</p>
+    </div>
+    <div class="about-panel">
+      <h3>What you’ll find here</h3>
+      <p>Step-by-step lessons, app tips, creative editing ideas, AI tools, and practical guidance for building and improving your online content.</p>
+    </div>
+  </section>
+  <section id="tutorials">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--site-primary)">Explore the channel</div>
+      <h2>Tutorials &amp; topics</h2>
+      <p>Helpful guides for your next video, edit, or creator project.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="icon">🎬</div><h3>Video Editing</h3><p>CapCut, mobile editing apps, trending Reels, Shorts, effects, and editing tips.</p></article>
+      <article class="card"><div class="icon">✨</div><h3>AI Tools &amp; Photo Editing</h3><p>Explore creative AI tools and learn practical ways to edit photos and improve content.</p></article>
+      <article class="card"><div class="icon">▶️</div><h3>YouTube Tips</h3><p>YouTube tips and tricks, channel setup, content creation, thumbnails, titles, and creator guidance.</p></article>
+      <article class="card"><div class="icon">📱</div><h3>Technology &amp; Apps</h3><p>Useful apps, mobile features, tech tutorials, and simple how-to guides.</p></article>
+      <article class="card"><div class="icon">📈</div><h3>Social Media</h3><p>Facebook and Instagram tips, creator tools, and monetization-related tutorials.</p></article>
+      <article class="card"><div class="icon">💡</div><h3>Creator Tips</h3><p>Ideas and practical advice to help you learn new skills and make stronger content.</p></article>
+    </div>
+  </section>
+  <section id="social" style="padding-top:20px">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--site-primary)">Connect</div>
+      <h2>Follow Tech With Yeakub</h2>
+      <p>Find my tutorials and creator updates on these social platforms.</p>
+      <div class="socials">
+        <a href="https://youtube.com/@techwithyeakub" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+        <a href="https://www.facebook.com/share/1JjvcP2eEh/" target="_blank" rel="noopener noreferrer">f Facebook</a>
+        <a href="https://www.instagram.com/yeakubislam28/" target="_blank" rel="noopener noreferrer">◎ Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><p><strong>Tech With Yeakub</strong> · Yakub Islam</p><p>Technology • Video Editing • YouTube Tips</p></footer>
+</div>
+</body>
+</html>
